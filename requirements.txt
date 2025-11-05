@@ -1,0 +1,9 @@
+Flask
+nltk
+numpy
+scikit-learn
+gunicorn
+json 
+random
+sqlite3
+numpy 
