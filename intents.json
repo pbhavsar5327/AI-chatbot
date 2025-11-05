@@ -1,0 +1,218 @@
+{
+  "intents": [
+    {
+      "tag": "About_University",
+      "patterns": [
+        "about university",
+        "jd university info",
+        "what is jd university",
+        "tell me about jd university",
+        "university details",
+        "about jd university"
+      ],
+      "responses": [
+        "🏫 JD University is a reputed institution in Ahmedabad offering B.Tech, MBA, and Diploma programs with modern infrastructure, experienced faculty, and top placements.",
+        "🎓 JD University focuses on innovation, research, and skill-based learning with excellent academic and extracurricular opportunities."
+      ]
+    },
+
+    {
+      "tag": "Admissions",
+      "patterns": [
+        "admissions",
+        "apply",
+        "application process",
+        "how to apply",
+        "admission form",
+        "when does admission start"
+      ],
+      "responses": [
+        "📝 Admission forms are available online at www.jduniversity.edu.in. You can also visit the campus admission office for assistance.",
+        "💡 JD University admissions open every year for all programs. Apply early to secure your seat!"
+      ]
+    },
+
+    {
+      "tag": "Btech_Info",
+      "patterns": [
+        "btech",
+        "b.tech",
+        "engineering",
+        "engineering courses",
+        "btech branches",
+        "btech specializations"
+      ],
+      "responses": [
+        "🎓 JD University offers B.Tech programs in Computer Engineering, Information Technology, Artificial Intelligence & Data Science, Mechanical, Civil, and Electrical branches."
+      ]
+    },
+
+    {
+      "tag": "MBA_Info",
+      "patterns": [
+        "mba",
+        "mba courses",
+        "management",
+        "management courses",
+        "mba specialization"
+      ],
+      "responses": [
+        "📊 JD University offers MBA programs with specializations in Marketing, Finance, Human Resources, and Operations. The program blends theory with practical learning."
+      ]
+    },
+
+    {
+      "tag": "Diploma_Info",
+      "patterns": [
+        "diploma",
+        "polytechnic",
+        "diploma courses",
+        "diploma programs",
+        "polytechnic branches"
+      ],
+      "responses": [
+        "⚙️ JD University offers Diploma programs in Civil, Computer, and Mechanical Engineering with strong industrial exposure and hands-on training."
+      ]
+    },
+
+    {
+      "tag": "Eligibility",
+      "patterns": [
+        "eligibility",
+        "qualification",
+        "criteria",
+        "who can apply",
+        "minimum qualification"
+      ],
+      "responses": [
+        "📘 Eligibility Criteria:\n- B.Tech: 12th (PCM) with 45% or Diploma in relevant branch.\n- MBA: Graduation with 50% or above.\n- Diploma: 10th pass with 40% or above."
+      ]
+    },
+
+    {
+      "tag": "Facilities",
+      "patterns": [
+        "facilities",
+        "campus",
+        "infrastructure",
+        "college facilities",
+        "what are the facilities"
+      ],
+      "responses": [
+        "🏫 JD University provides Wi-Fi campus, digital library, smart classrooms, modern laboratories, hostels, canteen, gym, and a large sports complex for students."
+      ]
+    },
+
+    {
+      "tag": "Hostel",
+      "patterns": [
+        "hostel",
+        "accommodation",
+        "rooms",
+        "hostel facilities",
+        "hostel fees"
+      ],
+      "responses": [
+        "🏠 JD University offers separate boys’ and girls’ hostels with mess, Wi-Fi, 24x7 security, and study areas — providing a comfortable and safe stay for students."
+      ]
+    },
+
+    {
+      "tag": "Transport",
+      "patterns": [
+        "bus",
+        "transport",
+        "college bus",
+        "transportation",
+        "bus facility"
+      ],
+      "responses": [
+        "🚌 The university provides safe and comfortable bus transport to major areas across Ahmedabad and nearby towns."
+      ]
+    },
+
+    {
+      "tag": "Placements",
+      "patterns": [
+        "placements",
+        "jobs",
+        "companies",
+        "recruitment",
+        "placement record",
+        "campus placements"
+      ],
+      "responses": [
+        "🎯 JD University has strong placement support with top recruiters like TCS, Infosys, Wipro, Tech Mahindra, and L&T. The average package ranges from ₹4–8 LPA."
+      ]
+    },
+
+    {
+      "tag": "Scholarship",
+      "patterns": [
+        "scholarship",
+        "financial aid",
+        "fee concession",
+        "scholarship options",
+        "loan assistance"
+      ],
+      "responses": [
+        "🎓 JD University offers scholarships for meritorious students, economically weaker sections (EWS), and reserved categories under state and national schemes."
+      ]
+    },
+
+    {
+      "tag": "Fees",
+      "patterns": [
+        "fees",
+        "fee structure",
+        "tuition fees",
+        "course fees",
+        "total fees"
+      ],
+      "responses": [
+        "💵 Fee Overview:\n- B.Tech: ₹85K–₹1L per year\n- MBA: ₹70K–₹90K per year\n- Diploma: ₹45K–₹65K per year\n🎓 Scholarships and fee waivers are available for eligible students."
+      ]
+    },
+
+    {
+      "tag": "Contact",
+      "patterns": [
+        "contact",
+        "email",
+        "phone",
+        "address",
+        "university contact"
+      ],
+      "responses": [
+        "📞 JD University Contact Details:\n📍 Location: Ahmedabad, Gujarat\n📧 Email: contact@jduniversity.edu.in\n📱 Phone: +91 9876543210\n🌐 Website: www.jduniversity.edu.in"
+      ]
+    },
+
+    {
+      "tag": "Greeting",
+      "patterns": ["hello", "hi", "hey", "good morning", "good evening"],
+      "responses": [
+        "👋 Hello there! I’m your JD University assistant. How can I help you today?",
+        "Hi! 😊 I'm JD University's chatbot. Ask me about admissions, courses, or fees!"
+      ]
+    },
+
+    {
+      "tag": "Thanks",
+      "patterns": ["thanks", "thank you", "ok thank you", "thank you so much"],
+      "responses": [
+        "😊 You’re most welcome! Glad to help you.",
+        "🙌 Anytime! I’m happy to assist you."
+      ]
+    },
+
+    {
+      "tag": "Goodbye",
+      "patterns": ["bye", "goodbye", "see you", "talk to you later"],
+      "responses": [
+        "👋 Goodbye! Have a great day ahead.",
+        "Take care! Wishing you success in your academic journey at JD University. 🎓"
+      ]
+    }
+  ]
+}

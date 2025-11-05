@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JD University Chatbot</title>
+<style>
+/* 🌄 Background with glassmorphism effect */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 🧊 Chat Container */
+.chat-container {
+    width: 420px;
+    height: 560px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 💬 Chat Box */
+.chat-box {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+/* 📱 Message Styles */
+.user, .bot {
+    margin: 8px 0;
+    padding: 12px 16px;
+    border-radius: 16px;
+    max-width: 80%;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease;
+}
+
+.user {
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    color: white;
+    align-self: flex-end;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+}
+
+.bot {
+    background: rgba(255, 255, 255, 0.8);
+    color: #222;
+    align-self: flex-start;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🎨 Category Buttons */
+#category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.category-btn {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(37, 117, 252, 0.4);
+}
+
+/* ✨ Input Area */
+.input-area {
+    display: flex;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+button.send-btn {
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 16px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button.send-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 🕊️ Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-box" id="chat-box">
+        <div class="bot">
+            👋 Hello! I’m <b>JD University’s</b> chatbot.<br>
+            Please choose a category below:
+        </div>
+        <div id="category-buttons">
+            {% for cat in categories %}
+            <button class="category-btn" onclick="sendCategory('{{ cat }}')">{{ cat }}</button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- 🧠 Input area for custom messages -->
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button class="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function appendMessage(sender, message) {
+    const box = document.getElementById("chat-box");
+    const div = document.createElement("div");
+    div.className = sender;
+    div.innerHTML = message;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+}
+
+// Typing animation for bot messages
+function showTyping(callback) {
+    const box = document.getElementById("chat-box");
+    const typing = document.createElement("div");
+    typing.className = "bot";
+    typing.innerHTML = "💭 Typing...";
+    box.appendChild(typing);
+    box.scrollTop = box.scrollHeight;
+    setTimeout(() => {
+        typing.remove();
+        callback();
+    }, 700);
+}
+
+function sendCategory(category) {
+    appendMessage("user", category);
+    fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: category })
+    })
+    .then(res => res.json())
+    .then(data => {
+        showTyping(() => appendMessage("bot", data.reply));
+    })
+    .catch(() => appendMessage("bot", "⚠️ Network error."));
+}
+
+function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (message === "") return;
+    appendMessage("user", message);
+    input.value = "";
+
+    fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+    })
+    .then(res => res.json())
+    .then(data => {
+        showTyping(() => appendMessage("bot", data.reply));
+    })
+    .catch(() => appendMessage("bot", "⚠️ Network error."));
+}
+</script>
+</body>
+</html>
